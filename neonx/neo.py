@@ -170,7 +170,7 @@ See `here <http://bit.ly/1fo5324>`_.
     if encoder is None:
         encoder = json.JSONEncoder()
 
-    all_server_urls = get_server_urls(server_url)
+    all_server_urls = requests.get(server_url, auth=('neo4j','logicuity')).json()
     batch_url = all_server_urls['batch']
 
     data = generate_data(graph, edge_rel_name, label, encoder)
