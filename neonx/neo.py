@@ -203,7 +203,7 @@ reference/classes.digraph.html>`_.
              LABEL_QRY.format(label, label), "params": {}}},
             ]
 
-    result = requests.post(batch_url, data=json.dumps(data), headers=HEADERS)
+    result = requests.post(batch_url,auth=('neo4j','logicuity'), data=json.dumps(data), headers=HEADERS)
     check_exception(result)
 
     node_data, edge_date = result.json()
