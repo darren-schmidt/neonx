@@ -109,6 +109,7 @@ def check_exception(result):
 
     if result.headers.get('content-type', '').lower() == JSON_CONTENT_TYPE:
         result_json = result.json()
+        print "result_json",result_json
         e = Exception(result_json['exception'])
         e.args += (result_json['stacktrace'], )
     else:
