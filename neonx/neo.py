@@ -125,7 +125,7 @@ def get_server_urls(server_url):
     :param server_url: the URL of the Neo4j server
     :rtype: a dictionary of parameters of the Neo4j server
     """
-    result = requests.get(server_url)
+    result = requests.get(server_url,auth=('neo4j','logicuity'))
     check_exception(result)
     return result.json()
 
