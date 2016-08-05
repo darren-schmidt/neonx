@@ -86,11 +86,12 @@ def generate_data(graph, edge_rel_name, label, encoder):
                                 edge_rel_name, properties)
         entities.append(edge)
 
-        if not is_digraph:
-            reverse_edge = get_relationship(nodes[to_node],
-                                            nodes[from_node],
-                                            edge_rel_name, properties)
-            entities.append(reverse_edge)
+#   Since we don't want relationships created in both directions, don't create reverse edges
+#        if not is_digraph:
+#            reverse_edge = get_relationship(nodes[to_node],
+#                                            nodes[from_node],
+#                                            edge_rel_name, properties)
+#            entities.append(reverse_edge)
 
     return encoder.encode(entities)
 
