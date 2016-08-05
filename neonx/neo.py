@@ -173,10 +173,11 @@ See `here <http://bit.ly/1fo5324>`_.
 
     all_server_urls = requests.get(server_url, auth=('neo4j','logicuity')).json()
     batch_url = all_server_urls['batch']
-
+    print "batch_url",batch_url
     data = generate_data(graph, edge_rel_name, label, encoder)
-    result = requests.post(batch_url, data=data, headers=HEADERS)
+    result = requests.post(batch_url, data=data, headers=HEADERS, auth=('neo4j','logicuity'))
     check_exception(result)
+    print "result",result
     return result.json()
 
 
